@@ -99,3 +99,20 @@ foreach ($C in $Contenido){
 }
 
  
+  #Para saber si in hotfix está instalado
+ #Si no se pone el KB trae todos
+ help Get-HotFix
+ Get-HotFix -id KB4517389
+ Get-HotFix | Out-File -FilePath E:\Soft\KB.txt -Append
+ Get-HotFix | Out-File -FilePath E:\Soft\KB.csv -Append
+
+ Get-Content  E:\Soft\KB.txt
+
+ #Buscar un texto en un archivo
+ Select-String -Path E:\Soft\KB.txt -Pattern "KB4521863"
+ #o
+ if (Select-String -Path E:\Soft\KB.txt -Pattern "KB4521863")
+ {Write-Host "Existe"}
+ else
+ {Write-Host "No existe"}
+
